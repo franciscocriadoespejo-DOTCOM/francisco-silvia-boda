@@ -162,14 +162,16 @@ box-shadow:0 15px 30px rgba(0,0,0,0.1);
 
 <body>
 
+<!-- HERO -->
 <section class="hero">
-<img src="portada.png">
+<img src="portada.png" alt="Portada boda">
 <div class="hero-content">
 <h1>Francisco & Silvia</h1>
 <p>Nos casamos<br>11 de Julio, 2026<br>Castro del Río, Córdoba</p>
 </div>
 </section>
 
+<!-- CUENTA ATRÁS -->
 <section class="countdown">
 <div class="container">
 <h2>Cuenta atrás para el gran día</h2>
@@ -184,6 +186,7 @@ box-shadow:0 15px 30px rgba(0,0,0,0.1);
 </div>
 </section>
 
+<!-- GALERÍA -->
 <section>
 <div class="container">
 <h2>Nuestra Historia</h2>
@@ -200,6 +203,7 @@ box-shadow:0 15px 30px rgba(0,0,0,0.1);
 </div>
 </section>
 
+<!-- DETALLES -->
 <section>
 <div class="container">
 <h2>Detalles del Evento</h2>
@@ -222,14 +226,16 @@ box-shadow:0 15px 30px rgba(0,0,0,0.1);
 </div>
 </section>
 
+<!-- ALOJAMIENTO -->
 <section>
 <div class="container">
 <h2>Alojamiento</h2>
+<p class="subtitle">Recomendación de alojamiento cerca del lugar de celebración</p>
 
-<div class="detail-card" style="max-width:600px;margin:auto;">
+<div class="detail-card" style="max-width:600px;margin:0 auto;">
 <h3>Hostal Rural A Ka la Sole</h3>
 
-<p style="margin:15px 0 25px;color:#666;">
+<p style="margin:15px 0 25px 0;color:#666;">
 Os recomendamos este acogedor hostal rural, muy cerca del lugar de la celebración.
 </p>
 
@@ -241,6 +247,7 @@ Ver ubicación en Google Maps
 </div>
 </section>
 
+<!-- CONFIRMACIÓN -->
 <section>
 <div class="container">
 <h2>Confirmación de Asistencia</h2>
@@ -275,6 +282,48 @@ Nos hace muchísima ilusión compartir este día contigo.
 </div>
 
 </form>
+</div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact-section">
+<div class="container">
+
+<h2>¿Necesitas más información?</h2>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+<h4>Francisco</h4>
+<div class="phone">
+<a href="tel:603450778" style="text-decoration:none;color:#d38b00;">
+603450778
+</a>
+</div>
+</div>
+
+<div class="contact-card">
+<h4>Silvia</h4>
+<div class="phone">
+<a href="tel:649214489" style="text-decoration:none;color:#d38b00;">
+649214489
+</a>
+</div>
+</div>
+
+</div>
+
+<div class="quote">
+❤️<br><br>
+"Lo más importante para nosotros es compartir este día
+especial con vosotros. Vuestra presencia es el mejor regalo."
+</div>
+
+<div class="signature">
+Con cariño,<br>
+Francisco y Silvia
+</div>
+
 </div>
 </section>
 
@@ -339,10 +388,25 @@ setInterval(function(){
 const now=new Date().getTime();
 const distance=weddingDate-now;
 
-document.getElementById("days").innerHTML=Math.floor(distance/(1000*60*60*24));
-document.getElementById("hours").innerHTML=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-document.getElementById("minutes").innerHTML=Math.floor((distance%(1000*60*60))/(1000*60));
-document.getElementById("seconds").innerHTML=Math.floor((distance%(1000*60))/1000);
+if(distance<0){
+document.getElementById("days").innerHTML=0;
+document.getElementById("hours").innerHTML=0;
+document.getElementById("minutes").innerHTML=0;
+document.getElementById("seconds").innerHTML=0;
+return;
+}
+
+document.getElementById("days").innerHTML=
+Math.floor(distance/(1000*60*60*24));
+
+document.getElementById("hours").innerHTML=
+Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+document.getElementById("minutes").innerHTML=
+Math.floor((distance%(1000*60*60))/(1000*60));
+
+document.getElementById("seconds").innerHTML=
+Math.floor((distance%(1000*60))/1000);
 
 },1000);
 
